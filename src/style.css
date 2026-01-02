@@ -215,17 +215,20 @@ body {
 .hud-corner {
   pointer-events: auto;
   position: absolute;
+  max-width: calc(50vw - 2rem);
 }
 
 .top-left {
   top: var(--spacing-unit);
   left: var(--spacing-unit);
+  max-width: 40%;
 }
 
 .top-right {
   top: var(--spacing-unit);
   right: var(--spacing-unit);
   text-align: right;
+  max-width: 45%;
 }
 
 .bottom-left {
@@ -1405,6 +1408,51 @@ body {
   }
 
   .sub-meta {
+    font-size: 0.65rem;
+  }
+
+  /* Hide system status on very small screens */
+  .system-status {
+    display: none;
+  }
+
+  /* Reduce spacing */
+  :root {
+    --spacing-unit: 1rem;
+  }
+
+  /* Content sections mobile */
+  .content-section {
+    padding: 80px 1rem;
+    min-height: auto;
+  }
+
+  /* Hero adjustments */
+  .hud-frame {
+    padding: 1.5rem;
+  }
+
+  /* Bottom controls */
+  .bottom-left,
+  .bottom-right {
+    font-size: 0.75rem;
+  }
+
+  .hud-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+  }
+
+  /* Make registration page more compact */
+  .registration-section {
+    padding: 60px 1rem;
+  }
+
+  .registration-header {
+    margin-bottom: 2rem;
+  }
+
+  .access-code {
     font-size: 0.65rem;
   }
 }
