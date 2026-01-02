@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ASTRA | Access Registration Portal</title>
+    <meta name="description" content="Register for ASTRA events and protocols.">
+
+    <!-- Google Fonts: Orbitron for futuristic headings, Share Tech Mono for terminal text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Share+Tech+Mono&display=swap"
+        rel="stylesheet">
+    <style>
+        body,
+        html {
+            background-color: #0a0a0a !important;
+            background: #0a0a0a !important;
+            color: white;
+            margin: 0;
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 3D Background -->
+        <canvas id="bg-canvas"></canvas>
+
+        <!-- Atmospheric Overlays -->
+        <div class="overlay vignette"></div>
+        <div class="overlay noise"></div>
+        <div class="overlay scanlines"></div>
+        <div class="hud-grid"></div>
+
+        <!-- HUD Interface (Fixed) -->
+        <div class="ui-layer">
+
+            <!-- Top Left: Brand Identity -->
+            <header class="hud-corner top-left">
+                <h1 class="brand">ASTRA <span class="blinking-cursor">_</span></h1>
+                <div class="sub-meta">
+                    <span>VER 2.0</span>
+                    <span class="separator">//</span>
+                    <span>SYSTEM: ONLINE</span>
+                </div>
+            </header>
+
+            <!-- Top Right: Navigation -->
+            <nav class="hud-corner top-right">
+                <ul class="nav-list">
+                    <li><a href="index.html#home" class="nav-item">/// HOME</a></li>
+                    <li><a href="index.html#programs" class="nav-item">/// EVENTS</a></li>
+                    <li><a href="index.html#about" class="nav-item">/// ABOUT</a></li>
+                    <li><a href="index.html#gallery" class="nav-item">/// GALLERY</a></li>
+                    <li><a href="register.html" class="nav-item nav-register active">/// REGISTER</a></li>
+                </ul>
+                <div class="system-status">
+                    <span>SYSTEM STATUS: ONLINE</span>
+                    <span class="status-dot"></span>
+                </div>
+            </nav>
+
+            <!-- Bottom Left: Back Button -->
+            <div class="hud-corner bottom-left">
+                <a href="index.html" class="hud-btn">
+                    [ ← RETURN TO MAIN ]
+                </a>
+            </div>
+        </div>
+
+        <!-- Scrollable Content -->
+        <main id="scroll-container">
+
+            <!-- Registration Section -->
+            <section id="register" class="content-section registration-section">
+                <div class="registration-container">
+
+                    <!-- Header -->
+                    <div class="registration-header">
+                        <div class="access-code">ACCESS CODE: REG-2026</div>
+                        <h2 class="registration-title">ACCESS REGISTRATION PORTAL</h2>
+                        <p class="registration-subtitle">
+                            <span class="terminal-prompt">></span> Initialize credentials for protocol access
+                        </p>
+                    </div>
+
+                    <!-- Registration Form -->
+                    <form id="registration-form" class="registration-form">
+
+                        <!-- Personal Information -->
+                        <div class="form-section">
+                            <h3 class="form-section-title">PERSONAL INFORMATION</h3>
+
+                            <div class="form-group">
+                                <label for="fullname">Full Name *</label>
+                                <input type="text" id="fullname" name="fullname" required
+                                    placeholder="Enter your full name">
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email Address *</label>
+                                    <input type="email" id="email" name="email" required
+                                        placeholder="your.email@example.com">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="phone">Phone Number *</label>
+                                    <input type="tel" id="phone" name="phone" required placeholder="+91 XXXXX XXXXX">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Academic Information -->
+                        <div class="form-section">
+                            <h3 class="form-section-title">ACADEMIC CREDENTIALS</h3>
+
+                            <div class="form-group">
+                                <label for="college">College / Institution *</label>
+                                <input type="text" id="college" name="college" required
+                                    placeholder="Enter your institution name">
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="department">Department *</label>
+                                    <input type="text" id="department" name="department" required
+                                        placeholder="e.g., Computer Science">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="year">Year of Study *</label>
+                                    <select id="year" name="year" required>
+                                        <option value="">Select Year</option>
+                                        <option value="1">First Year</option>
+                                        <option value="2">Second Year</option>
+                                        <option value="3">Third Year</option>
+                                        <option value="4">Fourth Year</option>
+                                        <option value="pg">Post Graduate</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Event Selection -->
+                        <div class="form-section">
+                            <h3 class="form-section-title">PROTOCOL SELECTION</h3>
+
+                            <div class="event-cards">
+                                <label class="event-card">
+                                    <input type="radio" name="event" value="ASTRA-X01" required>
+                                    <div class="event-card-content">
+                                        <div class="event-card-header">
+                                            <span class="event-code">ASTRA-X01</span>
+                                            <span class="status-badge status-active">ACTIVE</span>
+                                        </div>
+                                        <h4>CYBER SECURITY NEXUS</h4>
+                                        <p>Advanced penetration testing and digital defense mechanisms.</p>
+                                        <span class="event-date">OCT 12</span>
+                                    </div>
+                                </label>
+
+                                <label class="event-card">
+                                    <input type="radio" name="event" value="ASTRA-X02" required>
+                                    <div class="event-card-content">
+                                        <div class="event-card-header">
+                                            <span class="event-code">ASTRA-X02</span>
+                                            <span class="status-badge status-upcoming">UPCOMING</span>
+                                        </div>
+                                        <h4>AI ETHICS SYMPOSIUM</h4>
+                                        <p>Navigating the moral landscape of artificial general intelligence.</p>
+                                        <span class="event-date">OCT 15</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="form-actions">
+                            <button type="submit" class="btn-submit">
+                                <span class="btn-icon">▶</span>
+                                CONFIRM REGISTRATION
+                            </button>
+                        </div>
+
+                    </form>
+
+                    <!-- Success Modal (Hidden by default) -->
+                    <div id="success-modal" class="success-modal" style="display: none;">
+                        <div class="success-content">
+                            <div class="success-icon">✓</div>
+                            <h3 class="success-title">ACCESS GRANTED</h3>
+                            <p class="success-message">REGISTRATION SUCCESSFUL</p>
+                            <div class="registration-id">
+                                <span class="id-label">REGISTRATION ID:</span>
+                                <span class="id-value" id="reg-id"></span>
+                            </div>
+                            <button class="btn-close" onclick="closeSuccessModal()">
+                                CLOSE
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+        <script type="module" src="/src/main.js"></script>
+        <script type="module" src="/src/register.js"></script>
+    </div>
+</body>
+
+</html>

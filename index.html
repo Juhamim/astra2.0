@@ -8,11 +8,11 @@
   <title>ASTRA | Connect. Innovate. Transcend.</title>
   <meta name="description" content="Astra - The future of event management and digital experiences.">
 
-  <!-- Google Fonts: IBM Plex Mono for technical text, Syncopate for futuristic headers -->
+  <!-- Google Fonts: Orbitron for futuristic headings, Share Tech Mono for terminal text -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Syncopate:wght@400;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Share+Tech+Mono&display=swap"
     rel="stylesheet">
   <style>
     body,
@@ -35,6 +35,7 @@
     <div class="overlay vignette"></div>
     <div class="overlay noise"></div>
     <div class="overlay scanlines"></div>
+    <div class="hud-grid"></div>
 
     <!-- HUD Interface (Fixed) -->
     <div class="ui-layer">
@@ -52,11 +53,16 @@
       <!-- Top Right: Navigation -->
       <nav class="hud-corner top-right">
         <ul class="nav-list">
-          <li><a href="#home" class="nav-item">/// HOME</a></li>
+          <li><a href="#home" class="nav-item active">/// HOME</a></li>
           <li><a href="#programs" class="nav-item">/// EVENTS</a></li>
           <li><a href="#about" class="nav-item">/// ABOUT</a></li>
           <li><a href="#gallery" class="nav-item">/// GALLERY</a></li>
+          <li><a href="register.html" class="nav-item nav-register">/// REGISTER</a></li>
         </ul>
+        <div class="system-status">
+          <span>SYSTEM STATUS: ONLINE</span>
+          <span class="status-dot"></span>
+        </div>
       </nav>
 
       <!-- Bottom Left: Controls & Info -->
@@ -83,10 +89,34 @@
       <!-- Section 1: Hero -->
       <section id="home" class="content-section hero-section reveal">
         <div class="hero-content">
-          <h2 class="hero-title">REDEFINING<br>REALITY</h2>
-          <p class="hero-subtitle">
-            Join the revolution. Experience the ASTRA ecosystem.
+          <!-- HUD Frame -->
+          <div class="hud-frame">
+            <div class="hud-corner-tl"></div>
+            <div class="hud-corner-tr"></div>
+            <div class="hud-corner-bl"></div>
+            <div class="hud-corner-br"></div>
+
+            <h2 class="hero-title" data-glitch="REDEFINING REALITY">
+              REDEFINING<br>REALITY
+            </h2>
+          </div>
+
+          <p class="hero-subtitle terminal-text">
+            <span class="terminal-prompt">></span> <span id="typed-text"></span><span class="typing-cursor">_</span>
           </p>
+
+          <!-- CTA Buttons -->
+          <div class="hero-ctas">
+            <a href="#programs" class="btn-primary">
+              <span class="btn-icon">▶</span>
+              INITIALIZE ACCESS
+            </a>
+            <a href="register.html" class="btn-secondary">
+              <span class="btn-icon">+</span>
+              REGISTER NOW
+            </a>
+          </div>
+
           <div class="scroll-indicator">
             <span>SCROLL TO EXPLORE</span>
             <div class="line"></div>
@@ -94,45 +124,57 @@
         </div>
       </section>
 
-      <!-- Section 2: Events -->
+      <!-- Section 2: Events / Protocols -->
       <section id="programs" class="content-section reveal">
         <div class="section-header">
           <span class="section-number">01</span>
-          <h3>UPCOMING PROTOCOLS</h3>
+          <h3>CLASSIFIED PROTOCOLS</h3>
         </div>
 
         <div class="card-grid">
-          <!-- Card 1 -->
-          <div class="glass-card">
+          <!-- Mission Panel 1 -->
+          <div class="glass-card mission-panel">
+            <div class="mission-header">
+              <span class="event-code">ASTRA-X01</span>
+              <span class="status-badge status-active">ACTIVE</span>
+            </div>
             <div class="card-header">
               <span class="tag">/// WORKSHOP</span>
               <span class="date">OCT 12</span>
             </div>
             <h4>CYBER SECURITY NEXUS</h4>
             <p>Advanced penetration testing and digital defense mechanisms.</p>
-            <a href="#" class="card-link">[ ACCESS DATA ]</a>
+            <a href="register.html" class="card-link">[ ACCESS REGISTRATION ]</a>
           </div>
 
-          <!-- Card 2 -->
-          <div class="glass-card">
+          <!-- Mission Panel 2 -->
+          <div class="glass-card mission-panel">
+            <div class="mission-header">
+              <span class="event-code">ASTRA-X02</span>
+              <span class="status-badge status-upcoming">UPCOMING</span>
+            </div>
             <div class="card-header">
               <span class="tag">/// SEMINAR</span>
               <span class="date">OCT 15</span>
             </div>
             <h4>AI ETHICS SYMPOSIUM</h4>
             <p>Navigating the moral landscape of artificial general intelligence.</p>
-            <a href="#" class="card-link">[ ACCESS DATA ]</a>
+            <a href="register.html" class="card-link">[ ACCESS REGISTRATION ]</a>
           </div>
 
-          <!-- Card 3 -->
-          <div class="glass-card">
+          <!-- Mission Panel 3 -->
+          <div class="glass-card mission-panel">
+            <div class="mission-header">
+              <span class="event-code">ASTRA-X03</span>
+              <span class="status-badge status-locked">LOCKED</span>
+            </div>
             <div class="card-header">
               <span class="tag">/// HACKATHON</span>
               <span class="date">NOV 01</span>
             </div>
             <h4>NEURAL LINK HACK</h4>
             <p>48-hour challenge to build the future of brain-computer interfaces.</p>
-            <a href="#" class="card-link">[ ACCESS DATA ]</a>
+            <a href="#" class="card-link card-link-locked">[ AUTHORIZATION REQUIRED ]</a>
           </div>
         </div>
       </section>
@@ -193,8 +235,13 @@
         </div>
       </section>
 
-      <footer class="site-footer">
-        <p>COPYRIGHT © 2026 ASTRA EXPERIMENTS. ALL RIGHTS RESERVED.</p>
+      <footer class="site-footer terminal-footer">
+        <div class="footer-content">
+          <p class="footer-line">ASTRA SYSTEM © 2026<span class="blinking-cursor">▮</span></p>
+          <p class="footer-line">DEPARTMENT: CYBER SECURITY</p>
+          <p class="footer-line">KMCT INSTITUTE</p>
+          <p class="footer-line">STATUS: ONLINE</p>
+        </div>
         <div class="footer-links">
           <a href="#">PRIVACY</a>
           <a href="#">TERMS</a>

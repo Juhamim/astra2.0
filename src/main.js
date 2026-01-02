@@ -1,6 +1,7 @@
 import './style.css'
 import * as THREE from 'three';
 import './utils.js';
+import './animations.js';
 
 // Config
 const CONFIG = {
