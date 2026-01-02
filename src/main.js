@@ -12,53 +12,6 @@ const CONFIG = {
   cubeCount: 40
 };
 
-// ... (Scene Setup remains same)
-
-// Scroll Interaction for Camera
-let scrollY = 0;
-window.addEventListener('scroll', () => {
-  scrollY = window.scrollY;
-});
-
-// ...
-
-function animate() {
-  requestAnimationFrame(animate);
-  const elapsedTime = clock.getElapsedTime();
-
-  // Rotate Cubes
-  cubes.forEach(obj => {
-    obj.mesh.rotateOnAxis(obj.axis, obj.speed);
-    // Float effect
-    obj.mesh.position.y = obj.initialY + Math.sin(elapsedTime * 0.5 + obj.mesh.position.x) * 0.5;
-  });
-
-  // Rotate Particles
-  particlesMesh.rotation.y = elapsedTime * 0.05;
-  particlesMesh.rotation.x = mouseY * 0.2;
-
-  // Camera Sway + Scroll Effect
-  targetX = mouseX * 8;
-  targetY = mouseY * 8;
-
-  // Camera moves down as we scroll, giving a "descent" into the grid
-  const scrollOffset = scrollY * 0.01;
-
-  camera.position.x += (targetX - camera.position.x) * 0.03;
-  camera.position.y += (-targetY + 2 - scrollOffset - camera.position.y) * 0.03;
-
-  // Rotate camera slightly on scroll
-  camera.rotation.z = scrollOffset * 0.05;
-
-  // Subtle camera breathing
-  camera.position.z = 8 + Math.sin(elapsedTime * 0.2) * 0.5;
-
-  // Don't lookAt(0,0,0) strictly if we want the scroll-down effect to feel like panning
-  camera.lookAt(0, -scrollOffset, 0);
-
-  renderer.render(scene, camera);
-}
-
 // Scene Setup
 const canvas = document.querySelector('#bg-canvas');
 const scene = new THREE.Scene();
@@ -157,6 +110,7 @@ let mouseX = 0;
 let mouseY = 0;
 let targetX = 0;
 let targetY = 0;
+let scrollY = 0;
 
 const windowHalfX = window.innerWidth / 2;
 const windowHalfY = window.innerHeight / 2;
@@ -164,6 +118,11 @@ const windowHalfY = window.innerHeight / 2;
 document.addEventListener('mousemove', (e) => {
   mouseX = (e.clientX - windowHalfX) * 0.001;
   mouseY = (e.clientY - windowHalfY) * 0.001;
+});
+
+// Scroll Interaction for Camera
+window.addEventListener('scroll', () => {
+  scrollY = window.scrollY;
 });
 
 // Animation Loop
@@ -184,17 +143,24 @@ function animate() {
   particlesMesh.rotation.y = elapsedTime * 0.05;
   particlesMesh.rotation.x = mouseY * 0.2;
 
-  // Camera Sway logic
+  // Camera Sway + Scroll Effect
   targetX = mouseX * 8;
   targetY = mouseY * 8;
 
+  // Camera moves down as we scroll, giving a "descent" into the grid
+  const scrollOffset = scrollY * 0.01;
+
   camera.position.x += (targetX - camera.position.x) * 0.03;
-  camera.position.y += (-targetY + 2 - camera.position.y) * 0.03;
+  camera.position.y += (-targetY + 2 - scrollOffset - camera.position.y) * 0.03;
+
+  // Rotate camera slightly on scroll
+  camera.rotation.z = scrollOffset * 0.05;
 
   // Subtle camera breathing
   camera.position.z = 8 + Math.sin(elapsedTime * 0.2) * 0.5;
 
-  camera.lookAt(0, 0, 0);
+  // Don't lookAt(0,0,0) strictly if we want the scroll-down effect to feel like panning
+  camera.lookAt(0, -scrollOffset, 0);
 
   renderer.render(scene, camera);
 }
