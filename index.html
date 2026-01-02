@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ASTRA | Connect. Innovate. Transcend.</title>
+  <meta name="description" content="Astra - The future of event management and digital experiences.">
+
+  <!-- Google Fonts: IBM Plex Mono for technical text, Syncopate for futuristic headers -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Syncopate:wght@400;700&display=swap"
+    rel="stylesheet">
+  <style>
+    body,
+    html {
+      background-color: #0e0e0e !important;
+      background: #0e0e0e !important;
+      color: white;
+      margin: 0;
+      overflow-x: hidden;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 3D Background -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Atmospheric Overlays -->
+    <div class="overlay vignette"></div>
+    <div class="overlay noise"></div>
+    <div class="overlay scanlines"></div>
+
+    <!-- HUD Interface (Fixed) -->
+    <div class="ui-layer">
+
+      <!-- Top Left: Brand Identity -->
+      <header class="hud-corner top-left">
+        <h1 class="brand">ASTRA <span class="blinking-cursor">_</span></h1>
+        <div class="sub-meta">
+          <span>VER 2.0</span>
+          <span class="separator">//</span>
+          <span>SYSTEM: ONLINE</span>
+        </div>
+      </header>
+
+      <!-- Top Right: Navigation -->
+      <nav class="hud-corner top-right">
+        <ul class="nav-list">
+          <li><a href="#home" class="nav-item">/// HOME</a></li>
+          <li><a href="#programs" class="nav-item">/// EVENTS</a></li>
+          <li><a href="#about" class="nav-item">/// ABOUT</a></li>
+          <li><a href="#gallery" class="nav-item">/// GALLERY</a></li>
+        </ul>
+      </nav>
+
+      <!-- Bottom Left: Controls & Info -->
+      <div class="hud-corner bottom-left">
+        <button id="audio-toggle" class="hud-btn">
+          [ SOUND: OFF ]
+        </button>
+        <div class="location-data">
+          COORD: 34.0522° N, 118.2437° W
+        </div>
+      </div>
+
+      <!-- Bottom Right: CTA -->
+      <div class="hud-corner bottom-right">
+        <a href="#ticket" class="hero-cta">
+          INITIATE REGISTRATION <span class="arrow">-></span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Scrollable Content -->
+    <main id="scroll-container">
+
+      <!-- Section 1: Hero -->
+      <section id="home" class="content-section hero-section reveal">
+        <div class="hero-content">
+          <h2 class="hero-title">REDEFINING<br>REALITY</h2>
+          <p class="hero-subtitle">
+            Join the revolution. Experience the ASTRA ecosystem.
+          </p>
+          <div class="scroll-indicator">
+            <span>SCROLL TO EXPLORE</span>
+            <div class="line"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: Events -->
+      <section id="programs" class="content-section reveal">
+        <div class="section-header">
+          <span class="section-number">01</span>
+          <h3>UPCOMING PROTOCOLS</h3>
+        </div>
+
+        <div class="card-grid">
+          <!-- Card 1 -->
+          <div class="glass-card">
+            <div class="card-header">
+              <span class="tag">/// WORKSHOP</span>
+              <span class="date">OCT 12</span>
+            </div>
+            <h4>CYBER SECURITY NEXUS</h4>
+            <p>Advanced penetration testing and digital defense mechanisms.</p>
+            <a href="#" class="card-link">[ ACCESS DATA ]</a>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="glass-card">
+            <div class="card-header">
+              <span class="tag">/// SEMINAR</span>
+              <span class="date">OCT 15</span>
+            </div>
+            <h4>AI ETHICS SYMPOSIUM</h4>
+            <p>Navigating the moral landscape of artificial general intelligence.</p>
+            <a href="#" class="card-link">[ ACCESS DATA ]</a>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="glass-card">
+            <div class="card-header">
+              <span class="tag">/// HACKATHON</span>
+              <span class="date">NOV 01</span>
+            </div>
+            <h4>NEURAL LINK HACK</h4>
+            <p>48-hour challenge to build the future of brain-computer interfaces.</p>
+            <a href="#" class="card-link">[ ACCESS DATA ]</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: About -->
+      <section id="about" class="content-section text-left reveal">
+        <div class="section-header">
+          <span class="section-number">02</span>
+          <h3>THE INITIATIVE</h3>
+        </div>
+        <div class="about-content">
+          <p class="lead-text">
+            ASTRA is not just an event organization. It is a collective of visionaries, coders, and artists pushing the
+            boundaries of what is possible.
+          </p>
+          <p>
+            We act as the bridge between current reality and the digital future. Through immersive experiences,
+            technical workshops, and avant-garde showcases, we prepare the next generation for the singularity.
+          </p>
+          <div class="stats-row">
+            <div class="stat">
+              <span class="stat-num">50+</span>
+              <span class="stat-label">EVENTS</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">2K+</span>
+              <span class="stat-label">MEMBERS</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">100%</span>
+              <span class="stat-label">UPTIME</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Marquee Section -->
+      <section class="marquee-container">
+        <div class="marquee-content">
+          <span class="marquee-item">/// INNOVATE /// DISRUPT /// TRANSCEND /// EVOLVE /// CONNECT /// CREATE ///
+            IMAGINE ///</span>
+          <span class="marquee-item">/// INNOVATE /// DISRUPT /// TRANSCEND /// EVOLVE /// CONNECT /// CREATE ///
+            IMAGINE ///</span>
+        </div>
+      </section>
+
+      <!-- Section 4: Gallery -->
+      <section id="gallery" class="content-section reveal">
+        <div class="section-header">
+          <span class="section-number">03</span>
+          <h3>VISUAL DATABASE</h3>
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-item item-1"></div>
+          <div class="gallery-item item-2"></div>
+          <div class="gallery-item item-3"></div>
+          <div class="gallery-item item-4"></div>
+        </div>
+      </section>
+
+      <footer class="site-footer">
+        <p>COPYRIGHT © 2026 ASTRA EXPERIMENTS. ALL RIGHTS RESERVED.</p>
+        <div class="footer-links">
+          <a href="#">PRIVACY</a>
+          <a href="#">TERMS</a>
+          <a href="#">CONTACT</a>
+        </div>
+      </footer>
+
+    </main>
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
