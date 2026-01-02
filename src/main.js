@@ -6,7 +6,7 @@ import './utils.js';
 const CONFIG = {
   bgColor: 0x0e0e0e,
   fogColor: 0x0e0e0e,
-  accentColor: 0x00f3ff,
+  accentColor: 0xffffff,
   secondaryColor: 0x555555,
   particleCount: 500,
   cubeCount: 40
